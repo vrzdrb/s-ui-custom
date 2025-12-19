@@ -4,10 +4,10 @@ import (
 	"encoding/json"
 	"time"
 
-	"github.com/alireza0/s-ui/database"
-	"github.com/alireza0/s-ui/database/model"
-	"github.com/alireza0/s-ui/logger"
-	"github.com/alireza0/s-ui/util/common"
+	"github.com/vrzdrb/s-ui-custom/database"
+	"github.com/vrzdrb/s-ui-custom/database/model"
+	"github.com/vrzdrb/s-ui-custom/logger"
+	"github.com/vrzdrb/s-ui-custom/util/common"
 )
 
 type UserService struct {
@@ -35,15 +35,19 @@ func (s *UserService) UpdateFirstUser(username string, password string) error {
 	db := database.GetDB()
 	user := &model.User{}
 	err := db.Model(model.User{}).First(user).Error
+	hashedPassword, err := crypto.HashPasswordAsBcrypt(password)
+	if err != nil {
+		return common.NewError("failed to hash password: ", err.Error())
+	}
 	if database.IsNotFound(err) {
 		user.Username = username
-		user.Password = password
+		user.Password = hashedPassword
 		return db.Model(model.User{}).Create(user).Error
 	} else if err != nil {
 		return err
 	}
 	user.Username = username
-	user.Password = password
+	user.Password = hashedPassword
 	return db.Save(user).Error
 }
 
@@ -60,16 +64,20 @@ func (s *UserService) CheckUser(username string, password string, remoteIP strin
 
 	user := &model.User{}
 	err := db.Model(model.User{}).
-		Where("username = ? and password = ?", username, password).
+		Where("username = ?", username).
 		First(user).
 		Error
 	if database.IsNotFound(err) {
+		logger.Warning("user not found:", username, " IP: ", remoteIP)
 		return nil
 	} else if err != nil {
 		logger.Warning("check user err:", err, " IP: ", remoteIP)
 		return nil
 	}
-
+    if !crypto.CheckPasswordHash(user.Password, password) {
+		logger.Warning("wrong password for user:", username, " IP: ", remoteIP)
+		return nil
+	}
 	lastLoginTxt := time.Now().Format("2006-01-02 15:04:05") + " " + remoteIP
 	err = db.Model(model.User{}).
 		Where("username = ?", username).

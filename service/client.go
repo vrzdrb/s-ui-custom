@@ -6,11 +6,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/alireza0/s-ui/database"
-	"github.com/alireza0/s-ui/database/model"
-	"github.com/alireza0/s-ui/logger"
-	"github.com/alireza0/s-ui/util"
-	"github.com/alireza0/s-ui/util/common"
+	"github.com/vrzdrb/s-ui-custom/database"
+	"github.com/vrzdrb/s-ui-custom/database/model"
+	"github.com/vrzdrb/s-ui-custom/logger"
+	"github.com/vrzdrb/s-ui-custom/util"
+	"github.com/vrzdrb/s-ui-custom/util/common"
 
 	"gorm.io/gorm"
 )

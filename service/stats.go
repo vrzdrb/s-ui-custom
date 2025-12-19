@@ -3,8 +3,8 @@ package service
 import (
 	"time"
 
-	"github.com/alireza0/s-ui/database"
-	"github.com/alireza0/s-ui/database/model"
+	"github.com/vrzdrb/s-ui-custom/database"
+	"github.com/vrzdrb/s-ui-custom/database/model"
 
 	"gorm.io/gorm"
 )

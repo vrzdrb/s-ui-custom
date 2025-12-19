@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"math/rand"
 
-	"github.com/alireza0/s-ui/database/model"
+	"github.com/vrzdrb/s-ui-custom/database/model"
 )
 
 // Fill Inbound's out_json

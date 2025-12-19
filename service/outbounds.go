@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"os"
 
-	"github.com/alireza0/s-ui/database"
-	"github.com/alireza0/s-ui/database/model"
-	"github.com/alireza0/s-ui/util/common"
+	"github.com/vrzdrb/s-ui-custom/database"
+	"github.com/vrzdrb/s-ui-custom/database/model"
+	"github.com/vrzdrb/s-ui-custom/util/common"
 
 	"gorm.io/gorm"
 )

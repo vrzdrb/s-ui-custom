@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/alireza0/s-ui/config"
-	"github.com/alireza0/s-ui/logger"
+	"github.com/vrzdrb/s-ui-custom/config"
+	"github.com/vrzdrb/s-ui-custom/logger"
 
 	"github.com/sagernet/sing-box/common/tls"
 	"github.com/shirou/gopsutil/v4/cpu"

@@ -3,9 +3,9 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/alireza0/s-ui/config"
-	"github.com/alireza0/s-ui/database"
-	"github.com/alireza0/s-ui/service"
+	"github.com/vrzdrb/s-ui-custom/config"
+	"github.com/vrzdrb/s-ui-custom/database"
+	"github.com/vrzdrb/s-ui-custom/service"
 )
 
 func resetAdmin() {

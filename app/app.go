@@ -3,14 +3,14 @@ package app
 import (
 	"log"
 
-	"github.com/alireza0/s-ui/config"
-	"github.com/alireza0/s-ui/core"
-	"github.com/alireza0/s-ui/cronjob"
-	"github.com/alireza0/s-ui/database"
-	"github.com/alireza0/s-ui/logger"
-	"github.com/alireza0/s-ui/service"
-	"github.com/alireza0/s-ui/sub"
-	"github.com/alireza0/s-ui/web"
+	"github.com/vrzdrb/s-ui-custom/config"
+	"github.com/vrzdrb/s-ui-custom/core"
+	"github.com/vrzdrb/s-ui-custom/cronjob"
+	"github.com/vrzdrb/s-ui-custom/database"
+	"github.com/vrzdrb/s-ui-custom/logger"
+	"github.com/vrzdrb/s-ui-custom/service"
+	"github.com/vrzdrb/s-ui-custom/sub"
+	"github.com/vrzdrb/s-ui-custom/web"
 
 	"github.com/op/go-logging"
 )

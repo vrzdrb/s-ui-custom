@@ -5,8 +5,9 @@ import (
 	"os"
 	"path"
 
-	"github.com/alireza0/s-ui/config"
-	"github.com/alireza0/s-ui/database/model"
+	"github.com/vrzdrb/s-ui-custom/config"
+	"github.com/vrzdrb/s-ui-custom/database/model"
+    "github.com/vrzdrb/s-ui-custom/util/common"
 
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
@@ -15,6 +16,11 @@ import (
 
 var db *gorm.DB
 
+const (
+	defaultUsername = "admin"
+	defaultPassword = "admin"
+)
+
 func initUser() error {
 	var count int64
 	err := db.Model(&model.User{}).Count(&count).Error
@@ -22,9 +28,10 @@ func initUser() error {
 		return err
 	}
 	if count == 0 {
+		hashedPassword, err := crypto.HashPasswordAsBcrypt(defaultPassword)
 		user := &model.User{
-			Username: "admin",
-			Password: "admin",
+			Username: defaultUsername,
+			Password: hashedPassword,
 		}
 		return db.Create(user).Error
 	}

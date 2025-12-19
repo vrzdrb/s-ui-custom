@@ -3,7 +3,7 @@ package api
 import (
 	"strings"
 
-	"github.com/alireza0/s-ui/util/common"
+	"github.com/vrzdrb/s-ui-custom/util/common"
 
 	"github.com/gin-gonic/gin"
 )

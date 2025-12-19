@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/alireza0/s-ui/config"
+	"github.com/vrzdrb/s-ui-custom/config"
 
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
